@@ -1,23 +1,24 @@
-# Template Vue Vite Tailwindcss
+# Elibrary
 
-Template landingpage using `Vite`, `Vue`, and `Tailwindcss` with `github action`
+this elibrary using technology `Vite`, `Vue`, and `Tailwindcss` for [template](https://github.com/nursyah21/template-vue-vite-tailwindcss)
+
+- frontend will be deploy in `netlify`
+- backend using `supabase`
 
 reference:
 - https://tailwindcss.com/
 - https://vuejs.org/
 - https://vitejs.dev/
+- https://netlify.com/
+- https://supabase.com/
 
 
 for development
 ```
-npm run dev
+npx vite
 ```
 
 for production
 ```
-npm run build
+npm vite build
 ```
-
-you can deploy to github.io with github action [pages.yml](.github/workflows/pages.yml)
- 
-demo [github-page](https://nursyah21.github.io/template-vue-vite-tailwindcss/)

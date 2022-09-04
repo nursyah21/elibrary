@@ -3,7 +3,7 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -241,
+    "scrollTop": -280,
     "scrollLeft": -131.66666666666652,
     "zoomLevel": 0.8,
     "show": {
@@ -256,8 +256,8 @@
         ],
         "ui": {
           "active": false,
-          "left": 76.25,
-          "top": 219.75,
+          "left": 57.5,
+          "top": 173.5,
           "zIndex": 9,
           "widthName": 60,
           "widthComment": 60
@@ -502,9 +502,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 601.5563,
-          "top": 525.1339,
-          "zIndex": 14,
+          "left": 536.5563,
+          "top": 457.6339,
+          "zIndex": 11,
           "widthName": 60,
           "widthComment": 60
         },
@@ -633,9 +633,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 120.4889,
-          "top": 565.1115,
-          "zIndex": 12,
+          "left": 64.2389,
+          "top": 515.1115,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 60
         },
@@ -787,9 +787,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 608.4,
-          "top": 18.75,
-          "zIndex": 4,
+          "left": 904.65,
+          "top": 366.25,
+          "zIndex": 13,
           "widthName": 60,
           "widthComment": 60
         },
@@ -895,9 +895,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 632.1667,
-          "top": 282.5,
-          "zIndex": 5,
+          "left": 624.6667,
+          "top": 186.25,
+          "zIndex": 12,
           "widthName": 60,
           "widthComment": 60
         },
@@ -921,8 +921,8 @@
           "columnIds": [
             "ff735470-02ae-4ec6-b47f-28091eaba093"
           ],
-          "x": 305.50390625,
-          "y": 473.25,
+          "x": 286.75390625,
+          "y": 427,
           "direction": "bottom"
         },
         "end": {
@@ -930,8 +930,8 @@
           "columnIds": [
             "8061327f-f8d3-4b88-a866-2207e385cfe1"
           ],
-          "x": 301.10071640625,
-          "y": 565.1115,
+          "x": 244.85071640625,
+          "y": 515.1115,
           "direction": "top"
         },
         "constraintName": "fk_users_to_lends",
@@ -947,8 +947,8 @@
           "columnIds": [
             "b5ad98d5-d0bf-4a3e-ab65-12704dc87296"
           ],
-          "x": 601.5563,
-          "y": 662.1339,
+          "x": 536.5563,
+          "y": 594.6339,
           "direction": "left"
         },
         "end": {
@@ -956,8 +956,8 @@
           "columnIds": [
             "1c09ab60-a9ca-4f5b-a1cf-a52b2ba7f139"
           ],
-          "x": 481.7125328125,
-          "y": 650.8615,
+          "x": 425.4625328125,
+          "y": 600.8615,
           "direction": "right"
         },
         "constraintName": "fk_books_desc_to_lends",
@@ -973,8 +973,8 @@
           "columnIds": [
             "ff735470-02ae-4ec6-b47f-28091eaba093"
           ],
-          "x": 534.7578125,
-          "y": 346.5,
+          "x": 516.0078125,
+          "y": 300.25,
           "direction": "right"
         },
         "end": {
@@ -982,8 +982,8 @@
           "columnIds": [
             "226360c8-e215-434f-9d35-ccaf829abd0e"
           ],
-          "x": 632.1667,
-          "y": 358,
+          "x": 624.6667,
+          "y": 261.75,
           "direction": "left"
         },
         "constraintName": "fk_users_to_locker",

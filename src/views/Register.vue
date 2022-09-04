@@ -86,7 +86,7 @@ export default{
 }
 </script>
   
-  <!-- register -->
+<!-- register -->
 <template>
   <div class="sm:bg-pale-gray h-screen flex justify-center items-center flex-col">
     

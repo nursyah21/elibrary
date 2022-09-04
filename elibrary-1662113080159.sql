@@ -1,0 +1,74 @@
+
+CREATE TABLE BOOKS
+(
+  BOOK_ID   serial NOT NULL,
+  TITLE     text   NOT NULL,
+  AUTHOR    text   NOT NULL,
+  PUBLISHER tex    NOT NULL,
+  LABEL     text   NOT NULL,
+  URL_IMG   text   NOT NULL,
+  AVAILABLE int    NOT NULL,
+  COUNT     int    NOT NULL,
+  PAGES     int   ,
+  LOCATED    text  ,
+  PRIMARY KEY (BOOK_ID)
+);
+
+CREATE TABLE LENDS
+(
+  USER_ID  serial NOT NULL,
+  BOOK_ID  serial NOT NULL,
+  LENDS_ID serial NOT NULL,
+  DATES     date   NOT NULL,
+  RETURNED date  ,
+  PRIMARY KEY (LENDS_ID)
+);
+
+CREATE TABLE LOCKER
+(
+  LOCKER_ID serial  NOT NULL,
+  USER_ID   serial  NOT NULL,
+  LOCATED   text    NOT NULL,
+  RETURNED  boolean NOT NULL,
+  PRIMARY KEY (LOCKER_ID)
+);
+
+CREATE TABLE USERS
+(
+  USER_ID             serial  NOT NULL,
+  NIM                 text    NOT NULL,
+  EMAIL               text    NOT NULL,
+  PASSWORDS           text    NOT NULL,
+  CREATED_AT          date    NOT NULL,
+  VISITED_LIBRARY     int     NOT NULL,
+  IS_ADMIN            boolean,
+  FORGET_PASSWORD     date   ,
+  FORGET_PASSWORD_URL text   ,
+  PRIMARY KEY (USER_ID)
+);
+
+CREATE TABLE VISITED
+(
+  VISITED_ID serial   NOT NULL,
+  YEAR       smallint NOT NULL,
+  MONTH      smallint NOT NULL,
+  DAY        smallint NOT NULL,
+  COUNT      int      NOT NULL,
+  IS_WEBSITE boolean  NOT NULL,
+  PRIMARY KEY (VISITED_ID)
+);
+
+ALTER TABLE LENDS
+  ADD CONSTRAINT FK_USERS_TO_LENDS
+    FOREIGN KEY (USER_ID)
+    REFERENCES USERS (USER_ID);
+
+ALTER TABLE LENDS
+  ADD CONSTRAINT FK_BOOKS_TO_LENDS
+    FOREIGN KEY (BOOK_ID)
+    REFERENCES BOOKS (BOOK_ID);
+
+ALTER TABLE LOCKER
+  ADD CONSTRAINT FK_USERS_TO_LOCKER
+    FOREIGN KEY (USER_ID)
+    REFERENCES USERS (USER_ID);

@@ -26,7 +26,7 @@ export default{
 <template>
   <div class="h-screen p-3">
    <!-- navbar -->
-   <div class="flex border-b pb-3">
+   <div class="flex border-b py-3 fixed bg-white w-full top-0">
      <!-- logo itts -->
      <div>
        <img src="/logo_itts.png" alt="" class="w-20">
@@ -48,8 +48,8 @@ export default{
      </div>
    </div>
     <!-- list books -->
-    <div class="grid grid-cols-2 sm:grid-cols-6">
-      <div v-for="i in 60" class="text-gray-600 max-w-fit text-center m-2 hover:underline">
+    <div class="grid grid-cols-2 sm:grid-cols-6 mt-14">
+      <div v-for="i in 24" class="text-gray-600 max-w-fit text-center m-2 hover:underline">
         <div>
           <img src="/41.jpg" alt="" class="w-40 sm:w-48"> 
         </div>

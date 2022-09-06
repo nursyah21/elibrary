@@ -95,7 +95,9 @@ export default{
     <div class="px-6 py-4">
       <div class="flex justify-center items-center flex-col">
         <img src="/logo_itts.png" alt="" class="w-24 mt-5" />
-        <h2 class="text-3xl font-bold text-center text-gray-700 mt-1">E-library itts</h2>
+        <a href="/">
+          <h2 class="text-3xl font-bold text-center text-gray-700 mt-1 hover:underline">E-library itts</h2>
+        </a>
       </div>
       <h3 class="text-center font-medium text-xl text-gray-700 mt-1">Register</h3>
 

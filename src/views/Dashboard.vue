@@ -24,6 +24,7 @@ export default{
       isCatalog: false,
       isUser: false,
       isRented: false,
+      isOpt: false,
       isAdmin: true,
       isQrcode: false,
       nim:""
@@ -109,6 +110,15 @@ export default{
     },
     inputUser(){
       console.log(this.nim)
+    },
+    movePage(e){
+      this.isHome = false
+      this.isCatalog = false
+      this.isUser = false
+      this.isRented = false
+      this.isOpt = false
+
+      this[e] = true
     }
   }
 }
@@ -124,17 +134,17 @@ export default{
       </div>
       
       <!-- navbar button -->
-      <div :class="{hidden: !isAdmin}">
+      <div ref="navbar" :class="{hidden: !isAdmin}">
         <!-- beranda -->
-        <button class="mx-2 hover:-translate-y-0.5" :class="{'underline':isHome}">beranda</button>
+        <button @click="movePage('isHome')" class="mx-2 hover:-translate-y-0.5" :class="{'underline':isHome}">beranda</button>
         <!-- katalog -->
-        <button class="mx-2 hover:-translate-y-0.5" :class="{'underline':isCatalog}">katalog</button>
+        <button @click="movePage('isCatalog')" class="mx-2 hover:-translate-y-0.5" :class="{'underline':isCatalog}">katalog</button>
         <!-- pengguna -->
-        <button class="mx-2 hover:-translate-y-0.5" :class="{'underline':isUser}">pengguna</button>
+        <button @click="movePage('isUser')" class="mx-2 hover:-translate-y-0.5" :class="{'underline':isUser}">pengguna</button>
         <!-- dipinjam -->
-        <button class="mx-2 hover:-translate-y-0.5" :class="{'underline':isRented}">dipinjam</button>
+        <button @click="movePage('isRented')" class="mx-2 hover:-translate-y-0.5" :class="{'underline':isRented}">dipinjam</button>
         <!-- pengaturan -->
-        <button class="mx-2 hover:-translate-y-0.5" :class="{'underline':isRented}">pengaturan</button>
+        <button @click="movePage('isOpt')" class="mx-2 hover:-translate-y-0.5" :class="{'underline':isOpt}">pengaturan</button>
       </div>
     </div>
     
@@ -142,8 +152,9 @@ export default{
   
   <!-- admin -->
   <div :class="{hidden: !isAdmin}" class="mb-8">
+  
   <!-- beranda -->
-
+  <div :class="{hidden: !isHome}">
     <!-- chart -->
     <div id="chart" class="p-5 py-9 border shadow-md overflow-hidden"></div>
 
@@ -175,7 +186,7 @@ export default{
           <th>located</th>
           <th>time</th>
         </tr>
-        <tbody v-for="i in 10">
+        <tbody v-for="i in 0">
           <tr class="text-sm">
             <td class="text-center">{{i}}</td>
             <td>1201202040</td>
@@ -184,8 +195,21 @@ export default{
           </tr>
         </tbody>
     </table>
+  </div>
 
-    </div>
+  <!-- katalog -->
+  <div :class="{hidden: !isCatalog}">katalog</div>
+  
+  <!-- pengguna -->
+  <div :class="{hidden: !isUser}">pengguna</div>
+  
+  <!-- dipinjam -->
+  <div :class="{hidden: !isRented}">dipinjam</div>
+  
+  <!-- pengaturan -->
+  <div :class="{hidden: !isOpt}">pengaturan</div>
+
+  </div>
     
   <Footer />
     

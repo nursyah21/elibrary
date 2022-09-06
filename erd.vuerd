@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -262,
-    "scrollLeft": -219.66666666666652,
+    "scrollTop": -258,
+    "scrollLeft": -165.66666666666652,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -502,9 +502,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 536.5563,
-          "top": 457.6339,
-          "zIndex": 3,
+          "left": 576.5563,
+          "top": 473.8839,
+          "zIndex": 7,
           "widthName": 60,
           "widthComment": 60
         },
@@ -633,9 +633,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 64.2389,
-          "top": 515.1115,
-          "zIndex": 2,
+          "left": 105.4889,
+          "top": 525.1115,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -810,9 +810,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 920.9,
-          "top": 353.75,
-          "zIndex": 5,
+          "left": 964.65,
+          "top": 395,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 60
         },
@@ -918,9 +918,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 624.6667,
-          "top": 186.25,
-          "zIndex": 4,
+          "left": 618.4167,
+          "top": 225,
+          "zIndex": 9,
           "widthName": 60,
           "widthComment": 60
         },
@@ -953,8 +953,8 @@
           "columnIds": [
             "8061327f-f8d3-4b88-a866-2207e385cfe1"
           ],
-          "x": 244.85071640625,
-          "y": 515.1115,
+          "x": 286.10071640625,
+          "y": 525.1115,
           "direction": "top"
         },
         "constraintName": "fk_users_to_lends",
@@ -970,8 +970,8 @@
           "columnIds": [
             "b5ad98d5-d0bf-4a3e-ab65-12704dc87296"
           ],
-          "x": 536.5563,
-          "y": 594.6339,
+          "x": 576.5563,
+          "y": 610.8839,
           "direction": "left"
         },
         "end": {
@@ -979,8 +979,8 @@
           "columnIds": [
             "1c09ab60-a9ca-4f5b-a1cf-a52b2ba7f139"
           ],
-          "x": 425.4625328125,
-          "y": 600.8615,
+          "x": 466.7125328125,
+          "y": 610.8615,
           "direction": "right"
         },
         "constraintName": "fk_books_desc_to_lends",
@@ -1005,8 +1005,8 @@
           "columnIds": [
             "226360c8-e215-434f-9d35-ccaf829abd0e"
           ],
-          "x": 624.6667,
-          "y": 261.75,
+          "x": 618.4167,
+          "y": 300.5,
           "direction": "left"
         },
         "constraintName": "fk_users_to_locker",

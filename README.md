@@ -16,9 +16,9 @@ reference:
 
  **technology:**
 
-- `vuerd` to see schema database [erd.vuerd](erd.vuerd)
-- `frappe-charts` for charts
-- `bcrypt` for encyrpt password
+- [`vuerd`](https://github.com/vuerd/vuerd) to see schema database [erd.vuerd](erd.vuerd)
+- [`frappe-charts`](https://frappe.io/charts) for charts
+- [`bcrypt`](https://www.npmjs.com/package/bcrypt) for encyrpt password
 - `mailjet` for send mail
 - `supabase` to store database and file
 - `netlify` to deploy page

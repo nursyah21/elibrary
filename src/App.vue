@@ -6,17 +6,15 @@ export default {
   },
   methods: {
     async visited() {
-      var d = new Date()
-      var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-      var month = ['December', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
+      if(this.update)return
 
       const {data} = await supabase.from('visited').select().limit(1).order('visited_id', {ascending:false})
 
       var datas = {
-        years: d.getFullYear(),
-        months: d.getMonth(),
-        dates: d.getDate(),
-        days: d.getDay(),
+        years: new Date().getFullYear(),
+        months: new Date().getMonth(),
+        dates: new Date().getDate(),
+        days: new Date().getDay(),
         counts: 1,
         is_website: true
       }
@@ -27,7 +25,6 @@ export default {
       }catch(e){
         this.insertVisited(datas)
       }
-
     },
     async updateVisited(datas,id){
       const { data } = await supabase.from('visited').update(datas).eq('visited_id',id)

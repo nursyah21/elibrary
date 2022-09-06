@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -280,
-    "scrollLeft": -131.66666666666652,
+    "scrollTop": -262,
+    "scrollLeft": -219.66666666666652,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -258,7 +258,7 @@
           "active": false,
           "left": 57.5,
           "top": 173.5,
-          "zIndex": 9,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 60
         },
@@ -504,7 +504,7 @@
           "active": false,
           "left": 536.5563,
           "top": 457.6339,
-          "zIndex": 11,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60
         },
@@ -635,7 +635,7 @@
           "active": false,
           "left": 64.2389,
           "top": 515.1115,
-          "zIndex": 10,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60
         },
@@ -716,7 +716,7 @@
             "id": "76e8d3e4-6662-49d6-a65f-736f3802f7a2"
           },
           {
-            "name": "DAY",
+            "name": "DATE",
             "comment": "",
             "dataType": "smallint",
             "default": "",
@@ -737,6 +737,29 @@
               "widthDefault": 60
             },
             "id": "d2b0f410-5a41-4ab4-8c41-88607a3c7a1f"
+          },
+          {
+            "name": "DAY",
+            "comment": "",
+            "dataType": "smallint",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5bea6844-f848-43f0-8a01-e1b1db527f82"
           },
           {
             "name": "COUNT",
@@ -787,9 +810,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 904.65,
-          "top": 366.25,
-          "zIndex": 13,
+          "left": 920.9,
+          "top": 353.75,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 60
         },
@@ -897,7 +920,7 @@
           "active": false,
           "left": 624.6667,
           "top": 186.25,
-          "zIndex": 12,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60
         },

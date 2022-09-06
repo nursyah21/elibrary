@@ -13,7 +13,7 @@ reference:
 - https://vitejs.dev/
 - https://netlify.com/
 - https://supabase.com/
-
+ 
  **technology:**
 
 - `vuerd` to see schema database [erd.vuerd](erd.vuerd)

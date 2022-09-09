@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.35.6",
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
+    "node-mailjet": "^5.1.1",
     "qrcode": "^1.5.1",
     "vue": "^3.2.37",
     "vue-progressive-image": "^4.0.0",

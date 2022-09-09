@@ -27,7 +27,7 @@ export default{
     <div class="w-full sm:max-w-sm max-w-none  bg-white rounded-lg sm:border sm:shadow-md sm:h-fit">
     <div class="px-6 py-4">
       <div class="flex justify-center items-center flex-col">
-        <img src="/logo_itts.png" alt="" class="w-24 mt-5" />
+        <img src="../assets/logo_itts.png" alt="" class="w-24 mt-5" />
         <a href="/">
           <h2 class="text-3xl font-bold text-center text-gray-700 mt-1 hover:underline">E-library itts</h2>
         </a>

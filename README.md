@@ -18,13 +18,13 @@ reference:
 
 - [`vuerd`](https://github.com/vuerd/vuerd) to see schema database [erd.vuerd](erd.vuerd)
 - [`frappe-charts`](https://frappe.io/charts) for charts
-- [`bcrypt`](https://www.npmjs.com/package/bcrypt) for encyrpt password
-- `mailjet` for send mail
-- `supabase` to store database and file
-- `netlify` to deploy page
-- `vue` frontend framework
-- `tailwindcss` css framework
-- `vite` frontend tool
+- [`bcryptjs`](https://www.npmjs.com/package/bcryptjs) for encyrpt password
+- [`mailjet`](https://www.mailjet.com) for send mail
+- [`supabase`](https://supabase.com/) to store database and file
+- [`netlify`](http://netlify.com/) to deploy page
+- [`vue`](vuejs.org/) frontend framework
+- [`tailwindcss`](tailwindcss.com) css framework
+- [`vite`](https://vitejs.dev) frontend tool
 
 for development
 ```

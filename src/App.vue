@@ -6,31 +6,21 @@ export default {
   },
   methods: {
     async visited() {
-      if(this.update)return
 
-      const {data} = await supabase.from('visited').select().limit(1).order('visited_id', {ascending:false})
-
+      const {data} = await supabase.from('visited').select().match({visited_id: new Date().toDateString(), is_website:true})
+      const prevcount = (data.length == 0) ? 0 : data[0].views
+      
       var datas = {
-        years: new Date().getFullYear(),
-        months: new Date().getMonth(),
-        dates: new Date().getDate(),
-        days: new Date().getDay(),
-        counts: 1,
+        visited_id: new Date().toDateString(),
+        views: 1+prevcount,
         is_website: true
       }
-      try{
-        if(datas.years === data[0].years && datas.months === data[0].months && datas.dates === data[0].dates)
-          datas.counts += data[0].counts
-        this.updateVisited(datas, data[0].visited_id)
-      }catch(e){
-        this.insertVisited(datas)
+      if(prevcount != 0){
+        await supabase.from('visited').update({views: datas.views}).match({visited_id: datas.visited_id, is_website: datas.is_website})
+      }else{
+        await supabase.from('visited').insert(datas)
       }
-    },
-    async updateVisited(datas,id){
-      const { data } = await supabase.from('visited').update(datas).eq('visited_id',id)
-    },
-    async insertVisited(datas){
-      const { data } = await supabase.from('visited').insert(datas)
+      
     }
   }
 }

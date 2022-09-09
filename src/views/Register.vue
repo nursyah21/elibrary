@@ -1,51 +1,79 @@
 <script>
 import { supabase } from "../supabase"
 import bcrypt from 'bcryptjs'
+import { Loading,Utils } from "../components"
 
 export default{
+  components:{
+    Loading,
+    Utils
+  },
   data(){
     return{
-      isHidden: true,
-      nim: "",
-      email:"",
-      password:"",
-      confirmPassword:"",
-      status:"loading",
-      isLoading: true,
-      nimWrong: false,
-      emailWrong: false,
-      passwordWrong: false,
-      confirmWrong: false,
+      isLoading: false,
+      form:{
+        nim: "",
+        email:"",
+        password:"",
+        confirmPassword:"",
+      },
+      formWrong:{
+        nim: false,
+        email: false,
+        password: false,
+        confirmPassword: false,
+        alreadyNim:"",
+        alreadyEmail:""
+      }
     }
   },
-  setup(){
+  mounted(){
     document.title = 'Register | elibrary-itts'
+    this.test()
   },
   methods:{
+    async test(){
+      var {data} = await supabase.from('users').select("*").match({'nim': '1201202040'})
+      if(data.length === 1){
+        console.log('test data',data[0].nim)
+      }
+
+      var {data} = await supabase.from('users').select("*").match({'email': '1201202040'})
+      
+      if(data.length === 1){
+        console.log('test email',data[0].email)
+      }
+      
+    },
     async register(e){
       e.preventDefault();
       
-      this.nimWrong = (!this.checkNim(this.nim)) ? true : false
-      this.emailWrong = (!this.checkEmail(this.email)) ? true : false
-      this.passwordWrong = (!(this.password.length >= 8)) ? true : false
-      this.confirmWrong = (!(this.password == this.confirmPassword)) ? true : false
+      this.formWrong.nim = (!Utils.methods.checkNim(this.form.nim)) ? true : false
+      this.formWrong.email = (!Utils.methods.checkEmail(this.form.email)) ? true : false
+      this.formWrong.password = (!(this.form.password.length >= 8)) ? true : false
+      this.formWrong.confirmPassword = (!(this.form.password == this.form.confirmPassword)) ? true : false
       
-      if(this.nimWrong || this.emailWrong || this.passwordWrong || this.confirmWrong) return
+      if(this.formWrong.nim || this.formWrong.email || this.formWrong.password || this.formWrong.confirmPassword) return
       
-      const hash = this.encryptPass(this.password)
+      const hash = Utils.methods.encryptPass(this.form.password)
 
       this.activeModal(false)
 
       const data_user = {
-        nim: this.nim,
-        email: this.email.trim(),
+        nim: this.form.nim,
+        email: this.form.email.trim(),
         passwords: hash,
         created_at: new Date().toLocaleDateString(),
         visited_library: 0
       }
       
-      const {data} = await supabase.from('users').select("*").eq('nim', this.nim)
-      
+      // var nim = async function(){
+      //   return data
+      // }
+      const {data} = await supabase.from('users').select("*").match({'nim': this.form.nim})
+
+      console.log('test', data)
+      return
       try{
         if(this.nim === data[0].nim){
           this.isLoading = false
@@ -71,17 +99,6 @@ export default{
       if(this.status == "success") location.href = "/login"
       else if(reload)location.reload()
     }
-    ,
-    checkNim(nim){
-      if(nim.length != 10)return false
-      return /^\d+$/.test(nim)
-    },
-    checkEmail(email){
-      return /.*@(student.*.)?ittelkom-sby.ac.id$/.test(email.trim())
-    },
-    encryptPass(pass){
-      return bcrypt.hashSync(pass, bcrypt.genSaltSync(10))
-    }
   }
 }
 </script>
@@ -90,44 +107,43 @@ export default{
 <template>
   <div class="sm:bg-pale-gray h-screen flex justify-center items-center flex-col">
     
-    <!-- card -->
+  <!-- card -->
   <div class="w-full sm:max-w-sm max-w-none  bg-white rounded-lg sm:border sm:shadow-md sm:h-fit">
     <div class="px-6 py-4">
       <div class="flex justify-center items-center flex-col">
-        <img src="/logo_itts.png" alt="" class="w-24 mt-5" />
+        <img src="../assets/logo_itts.png" alt="" class="w-24 mt-5" />
         <a href="/">
           <h2 class="text-3xl font-bold text-center text-gray-700 mt-1 hover:underline">E-library itts</h2>
         </a>
       </div>
       <h3 class="text-center font-medium text-xl text-gray-700 mt-1">Register</h3>
 
-      <form @submit="register">
+      <form @submit.prevent="register">
 
         <!-- nim -->
         <div class="w-full mt-4">
-          <input v-model="nim" class="w-full px-4 py-2 border rounded-md" type="text" placeholder="nim" title="input your nim">
-          <p class="text-sm text-blood px-2 mt-1" :class="{hidden: !nimWrong}">
-            nim length: 10 <br>
-            nim only contain number
-          </p>
+          <input v-model="form.nim" class="w-full px-4 py-2 border rounded-md" type="text" placeholder="nim" title="input your nim">
+          <p class="text-sm text-blood px-2 mt-1" :class="{hidden: !formWrong.nim}">nim length: 10 <br>nim only contain number</p>
+          <p class="text-sm text-blood px-2 mt-1">{{formWrong.alreadyNim}}</p>
         </div>
 
         <!-- email -->
         <div class="w-full mt-4">
-          <input v-model="email" class="w-full px-4 py-2 border rounded-md" type="email" placeholder="email itts" title="input your email itts">
-          <p class="text-sm text-blood px-2 mt-1" :class="{hidden: !emailWrong}">use email ittelkom-sby</p>
+          <input v-model="form.email" class="w-full px-4 py-2 border rounded-md" type="email" placeholder="email itts" title="input your email itts">
+          <p class="text-sm text-blood px-2 mt-1" :class="{hidden: !formWrong.email}">use email ittelkom-sby</p>
+          <p class="text-sm text-blood px-2 mt-1">{{formWrong.alreadyEmail}}</p>
         </div>
         
         <!-- password -->
         <div class="w-full mt-4">
-          <input v-model="password" class="w-full px-4 py-2 border rounded-md" type="password" placeholder="password"  title="input your password">
-          <p class="text-sm text-blood px-2 mt-1" :class="{hidden: !passwordWrong}">min password length: 8</p>
+          <input v-model="form.password" class="w-full px-4 py-2 border rounded-md" type="password" placeholder="password"  title="input your password">
+          <p class="text-sm text-blood px-2 mt-1" :class="{hidden: !formWrong.password}">min password length: 8</p>
         </div>
 
         <!-- confirm-password -->
         <div class="w-full mt-4">
-          <input v-model="confirmPassword" class="w-full px-4 py-2 border rounded-md" type="password" placeholder="confirm password"  title="confirm your password">
-          <p class="text-sm text-blood px-2 mt-1" :class="{hidden: !confirmWrong}">confirm password not same</p>
+          <input v-model="form.confirmPassword" class="w-full px-4 py-2 border rounded-md" type="password" placeholder="confirm password"  title="confirm your password">
+          <p class="text-sm text-blood px-2 mt-1" :class="{hidden: !formWrong.confirmPassword}">confirm password not same</p>
         </div>
 
         <!-- submit -->
@@ -146,23 +162,8 @@ export default{
   </div>
 
 
-  <!-- modal -->
-  <div ref="logout" class="w-screen h-screen fixed top-0" :class="{hidden: isHidden}">
-    <div class="flex justify-center items-center h-screen flex-col">
-      <div class="fixed bg-white z-0 w-screen h-screen opacity-80"></div>
-  
-      <div class="z-10 text-center text-blood text-sm">
-        <img src="/loading-red-1.svg" alt="" class="w-20 mb-2" :class="{hidden: !isLoading}">
-        <div :class="{hidden: !isLoading}">{{status}}</div>
-
-        <div class="w-full flex justify-center">
-          <button @click="activeModal(true)" class="bg-blood mt-2 text-white p-2 border-none rounded-lg px-3 hover:underline" :class="{hidden: isLoading}">{{status}}</button>
-        </div>
-      </div>
-      
-      
-    </div>
-  </div>
+  <!-- loading -->
+  <Loading :class="{hidden: !isLoading}" />
 
   </div>
 

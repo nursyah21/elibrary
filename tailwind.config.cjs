@@ -11,7 +11,8 @@ module.exports = {
         'blue-green': '#94A3B8',
         'blood': '#9C0004',
         'turqoise':'#38C5DD',
-        'pale-gray':'#F3F4F6'
+        'pale-gray':'#F3F4F6',
+        'sky':'#0CC5FF'
       }
     },
   },
